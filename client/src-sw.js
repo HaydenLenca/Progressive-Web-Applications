@@ -21,7 +21,6 @@ const pageCache = new CacheFirst({
 
 warmStrategyCache({
   urls: ['/index.html', '/'],
-
   strategy: pageCache,
 });
 
@@ -32,13 +31,10 @@ registerRoute(
 
   ({ request }) => ['style', 'script', 'worker'].includes(request.destination),
   new CacheFirst({ 
-
     cacheName: 'assets-cache',
     plugins: [
-
       new CacheableResponsePlugin({
-        statuses: [0, 200],
-        
+        statuses: [0, 200],       
       }),
     ],
   }),
